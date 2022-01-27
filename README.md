@@ -6,6 +6,30 @@ This is just a demo web application using "Mermaid". It lets you create diagrams
 
 See demo: https://lightzane.github.io/example-mermaid
 
+## Installation
+
+via npm
+
+```
+npm i mermaid
+npm i @types/mermaid -D
+```
+
+or CDN
+
+```html
+<script src="https://unpkg.com/mermaid@8.13.10/dist/mermaid.core.js"></script>
+```
+
+## vscode
+
+Or just write in your markdown file (e.g `README.md`) and preview via vscode extension: [Markdown Preview Mermaid Support](https://marketplace.visualstudio.com/items?itemName=bierner.markdown-mermaid)
+
+See other editor plugins:
+https://mermaid-js.github.io/mermaid/#/./integrations?id=editor-plugins
+
+## See Examples Below
+
 ### Graph
 
 ```mermaid
@@ -116,3 +140,4 @@ sequenceDiagram
 
 -   https://mermaid-js.github.io/mermaid/#/
 -   https://unpkg.com/mermaid@8.13.10/dist/mermaid.core.js
+-   https://mermaid-js.github.io/mermaid/#/./integrations?id=editor-plugins
