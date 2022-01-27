@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>UML Diagrams</title>
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+        <style>* { font-family: Roboto, Arial; } .mermaid { text-align: center; }</style>
+    </head>
+    <body>
+        <h1>Graph</h1>
+        <div class="mermaid">
+            graph TD;
+                A-->B;
+                A-->C;
+                B-->D;
+                C-->D;
+        </div>
+
+        <h1>Flowchart</h1>
+        <div class="mermaid">
+            flowchart TD
+                A[Start] --> B{Is it?};
+                B -->|Yes| C[OK];
+                C --> D[Rethink];
+                D --> B;
+                B ---->|No| E[End];
+        </div>
+
+        <h1>Sequence Diagram</h1>
+        <div class="mermaid">
+            sequenceDiagram
+                participant Nat
+                participant Ivy
+                Nat->>John: Hello John, how are you?
+                loop Lifecheck
+                    John->>John: Fight against sad life
+                end
+                Note right of John: Rational thoughts <br/>prevail!
+                John-->>Nat: Great!
+                John->>Ivy: How about you?
+                Ivy-->>John: Jolly good!
+        </div>
+        
+        <h1>Gantt Chart</h1>
+        <div class="mermaid">
+            gantt
+                dateFormat  MM-DD-YYYY
+                title My very good Gantt chart
+
+                section Todo
+                Watch Netflix     :done,    01-21-2022, 5d
+                Play games        :active,        01-25-2022, 2d
+                Play more games   : ,  01-27-2022, 5d
+        </div>
+
+        <h1>Sequence Diagram</h1>
+        <div class="mermaid">
+            sequenceDiagram
+                actor A as You
+                participant B as ATM
+                participant C as Bank Server
+                participant D as Bank Account
+            
+                A ->>   +B: Insert Card
+                B ->>   +C: Verify Card
+                
+                alt happy path
+                C -->>  B: Card OK!
+                B ->>   A: Request PIN
+
+                else sad path
+                C -->>-  B: Card Invalid
+                Note right of A: Hmm, Is there a human behind this ATM?
+                B -)-  A: Eject Card
+                end
+
+                A -->>  +B: PIN Entered
+                B ->>   +C: Verify PIN
+
+                alt happy path
+                C -->>  B: PIN OK
+                B ->>   A: Request Amount
+
+                else sad path
+                C -->>  B: PIN Invalid
+                B -)-   A: Eject Card
+                end
+
+                A -->>  +B: Amount entered
+                B ->>   C: Start Transaction
+                C ->>   +D: Sufficient funds ?
+
+                alt if funds are sufficient
+                D -->>  C: Funds OK
+                C ->>   D: Withdraw Amount
+                D -->>  C: Withdraw Successful
+                C -->>  B: Transaction Successful
+                B ->>   A: Dispense Cash
+
+                else sad no money
+                D -->>  -C: Insufficient Funds
+                C -->>-  B: Transaction Unsuccessful
+                end
+
+                B -)-   A: Eject Card
+                
+        </div>
+    </body>
+</html>
